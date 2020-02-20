@@ -23,8 +23,8 @@ namespace Cytel.Top.Api.Controllers
 
        
         [HttpGet]
-        [Route("Cytel/GetAll")]
-        public IEnumerable<Study> GetAll()
+        [Route("api/studies")]
+        public IEnumerable<Study> Get()
         {
             IEnumerable<Study> listAll = customerRepository.FindAll();
             return listAll;
@@ -36,9 +36,15 @@ namespace Cytel.Top.Api.Controllers
             Study _input = customerRepository.FindByID(id);
             return _input;
         }
+        [HttpDelete]
+        [Route("Cytel/DeleteById")]
+        public void DeleteById(int id)
+        {
+            customerRepository.Remove(id);            
+        }
 
         [HttpPost]
-        [Route("Cytel/PostInput")]
+        [Route("api/studies")]
         public void PostInput(Study _input)
         {
             customerRepository.Add(_input);

@@ -60,7 +60,7 @@ namespace Cytel.Top.Repository
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("DELETE FROM customer WHERE Id=@Id", new { Id = id });
+                dbConnection.Execute("DELETE FROM public.\"Inputs\" WHERE Id=@Id", new { Id = id });
             }
         }
 
